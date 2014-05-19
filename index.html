@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Are They Dead?</title>
+    <meta name="description" content="A site to instantly inform you if someone is dead!">
+    <meta name="author" content="Andrew Sampson">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+    <h1 class="status_return">
+<div id="sentback">
+Give me a name and it shall be so.
+</div>
+</h1>
+    <form name="filters" onsubmit='return areTheyDead("core/callscraper.php");'>
+        <input id="person" type="text" name="person">
+        <button type="button" onClick='areTheyDead("core/callscraper.php")'>Are They Dead?</button>
+    </form>
+    <aside id="sidebar" role="complementary">
+        <div id="primary" class="widget-area">
+            <ul class="xoxo">
+                <li id="bhab_widget-3" class="widget-container widget_bhab_widget">
+                    <h3 class="widget-title">Beer</h3><a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TWHNPSC7HRNR2">Buy Me a Beer</a>
+                    <h3 class="widget-title">Code</h3><a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TWHNPSC7HRNR2">Source Code</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <script src="js/app.js"></script>
+	<script src="js/jquery.js"></script>
+</body>
+
+</html>
