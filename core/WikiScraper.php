@@ -30,14 +30,14 @@ class WikiScraper
     private function getHTML($wikiname)
     {
         $wikiname = str_replace(' ', '_', $wikiname);
+		$wikiname = strtolower($wikiname);
         $html = file_get_contents("http://en.wikipedia.org/wiki/$wikiname");
         return $html;
 
     }
 
 
-
-    // -- Function Name : getStatus
+   // -- Function Name : getStatus
     // -- Params :
     // -- Purpose : Retrieves the life status of the entered person (fictional or non-fictional)
     public function getStatus()
@@ -45,8 +45,12 @@ class WikiScraper
         $person_name = $this->name;
         $html_contents = $this->getHTML($person_name);
 
+            if (strpos(strtolower($person_name),'schrödinger') !== false) {
+                echo "<a href = \"http://en.wikipedia.org/wiki/$person_name\">Maybe. Maybe not.</a><br>";
+                return;
+            }
         //Can most defiantly be done better, no idea how functional this is. Job gets done.
-       if (strpos($html_contents, '<th scope="row" style="text-align:left;">Died</th>') !== false) {
+        if (strpos($html_contents, 'Died</th>') !== false) {
             echo "<a href = \"http://en.wikipedia.org/wiki/$person_name\">Yep. They Are Dead.</a><br>";
         } else if (strpos($html_contents, 'appearance</th>') !== false) {
             echo "<a href = \"http://en.wikipedia.org/wiki/$person_name\">Yep. They Are Dead.</a><br>";
@@ -54,7 +58,6 @@ class WikiScraper
             echo "<a href = \"http://en.wikipedia.org/wiki/$person_name\">Nope. Still alive.</a><br>";
         }
     }
-
 
 
     // -- Function Name : __destruct
