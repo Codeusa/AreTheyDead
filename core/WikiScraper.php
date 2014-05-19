@@ -46,9 +46,9 @@ class WikiScraper
         $html_contents = $this->getHTML($person_name);
 
         //Can most defiantly be done better, no idea how functional this is. Job gets done.
-        if (strpos($html_contents, '<th scope="row" style="text-align:left;">Died</th>') != false) {
+       if (strpos($html_contents, '<th scope="row" style="text-align:left;">Died</th>') !== false) {
             echo "<a href = \"http://en.wikipedia.org/wiki/$person_name\">Yep. They Are Dead.</a><br>";
-        } else if (strpos($html_contents, 'appearance</th>') != false) {
+        } else if (strpos($html_contents, 'appearance</th>') !== false) {
             echo "<a href = \"http://en.wikipedia.org/wiki/$person_name\">Yep. They Are Dead.</a><br>";
         } else {
             echo "<a href = \"http://en.wikipedia.org/wiki/$person_name\">Nope. Still alive.</a><br>";
