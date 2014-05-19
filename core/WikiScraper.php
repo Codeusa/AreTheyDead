@@ -44,11 +44,6 @@ class WikiScraper
     {
         $person_name = $this->name;
         $html_contents = $this->getHTML($person_name);
-
-            if (strpos(strtolower($person_name),'schrödinger') !== false) {
-                echo "<a href = \"http://en.wikipedia.org/wiki/$person_name\">Maybe. Maybe not.</a><br>";
-                return;
-            }
         //Can most defiantly be done better, no idea how functional this is. Job gets done.
         if (strpos($html_contents, 'Died</th>') !== false) {
             echo "<a href = \"http://en.wikipedia.org/wiki/$person_name\">Yep. They Are Dead.</a><br>";
